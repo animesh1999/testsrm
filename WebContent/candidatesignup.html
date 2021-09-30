@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="assets/css/stylerechome.css">
+<link rel="stylesheet" href="externalstylesheet.css">
+<link rel="stylesheet" href="assests/css/style.css">
+<script>
+function validateform()
+{
+	if (validatenamepass()==false || validateemail()==false)
+		{return false;
+		}
+
+function validatenamepass()
+{  
+	var name=document.myform.rcd_name.value;  
+	var password=document.myform.rcd_pass.value;  
+	  
+	if (name==null || name==""){  
+	  alert("Name can't be blank");  
+	  return false;  
+	}else if(password.length<6){  
+	  alert("Password must be at least 6 characters long.");  
+	  return false;  
+	  }
+}
+
+function validateemail()  
+{  
+var x=document.myform.rcd_emailid.value;  
+var atposition=x.indexOf("@");  
+var dotposition=x.lastIndexOf(".");  
+if (atposition<1 || dotposition<atposition+2 || dotposition+2>=x.length){  
+  alert("Please enter your valid e-mail address provided by the university \n atpostion:"+atposition+"\n dotposition:"+dotposition);  
+  return false;  
+  }  
+}
+}
+</script>  
+</head>
+<body>
+<div class="header">
+			Enter Candidate Details
+		</div>
+<div class="login">
+<form name="myform"  action=CanSignServlet method="get" onsubmit="return validateform()">
+<br>
+<input type="text" name="rcd_name" required="required" placeholder="Enter Name"><br>
+<br>
+<input type="text" name="rcd_skill" required="required" placeholder="Enter Primary Skill"><br>
+<br>
+<input type="text" name="rcd_yoe" required="required" placeholder="Enter Year of Experience"><br>
+<br>
+<input type="text" name="rcd_emailid" required="required" placeholder="Enter SRM University Email ID" onsubmit="return validateemail()"><br>
+<br>
+<input type="text" name="rcd_dob" required="required" placeholder="Enter DOB (yyyy-MM-dd)"><br>
+
+<input type="password" name="rcd_pass" required="required" placeholder="Enter Password"><br>
+<input type="submit" value="SignUp">
+</form>
+<form action="candidatehomepage.html" method="get" target="_blank">
+		
+				<button type="submit">Back</button>
+		
+		</form> 
+</div>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="assets/css/stylerechome.css">
+<link rel="stylesheet" href="externalstylesheet.css">
+
+<script>
+function validateform()
+{
+	if (validatenamepass()==false || validateemail()==false)
+		{
+		return false;
+		}
+
+
+
+function validatenamepass()
+{  
+	var id=document.myform.rcp_id.value;  
+	var password=document.myform.rcp_pass.value;  
+	  
+	if (id==null || id==""){  
+	  alert("ID can't be blank");  
+	  return false;  
+	}else if(password.length<6){  
+	  alert("Password must be at least 6 characters long.");  
+	  return false;  
+	  }
+}
+
+function validateemail()  
+{  
+var x=document.myform.rcp_id.value;  
+if (isNaN(parseFloat(x))){  
+  alert("Please enter a valid id");  
+  return false;  
+  }  
+}
+}
+	
+</script> 
+</head>
+<body>
+<div class="header">
+			Enter Recruiter Details
+		</div>
+<div class="login">
+<form name="myform" action="RecSignServlet" method="get" onsubmit="return validateform()">
+<br>
+<input type="text" name="rcp_id" placeholder="University Dept ID" required="required" onsubmit="return validateemail()">
+
+<br>
+<br>
+<input type="text" name="rcp_name" placeholder="University Dept Name" required="required"><br>
+
+<br>
+<input type="text" name="rcp_sal" placeholder="Salary" required="required"><br>
+
+<br>
+<input type="text" name="rcp_profile" placeholder="Job Profile"required="required"><br>
+
+<br>
+<input type="password" name="rcp_pass" placeholder="Password" required="required"><br>
+<br>
+<input type="submit" value="SignUp">
+</form>
+
+<form action="recruitmenthomepage.html" method="get" target="_blank">
+		
+				<button type="submit">Back</button>
+		
+		</form>   
+</div>
+</body>
+</html>
